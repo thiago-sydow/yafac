@@ -1,5 +1,7 @@
 require 'sinatra/base'
 
+require_relative 'offer_client'
+
 module Yafac
   class Main < Sinatra::Base
 
