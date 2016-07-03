@@ -22,3 +22,18 @@ Time was one reason but also I think that this is a reasonable version to be sho
 
 ### Observation
 1. There is a special treatment in `offer_client.rb:31` because Fyber API is returning HTTP 200 OK when a invalid page is informed. So the API has a bug, or the documentation is outdated.
+
+## Running locally
+```
+$ git clone git@github.com:thiago-sydow/yafac.git
+$ cd yafac/
+$ bundle install
+$ bundle exec unicorn -c ./config/unicorn.rb
+```
+
+You can see the app at `http://localhost:8080`
+
+## Running Tests
+```
+$ bundle exec rake
+```
