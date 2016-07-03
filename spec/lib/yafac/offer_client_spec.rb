@@ -1,8 +1,8 @@
 RSpec.describe Yafac::OfferClient do
+  let(:informed) { {pub0: 'x', uid: 'y', page: '1'} }
+  let(:client) { Yafac::OfferClient.new(informed) }
 
   describe '#initialize' do
-    let(:informed) { {pub0: 'x', uid: 'y', page: '1'} }
-    let(:client) { Yafac::OfferClient.new(informed) }
 
     it 'merges the informed attributes into params' do
       expect(client.instance_variable_get(:@params)).to include(informed)
@@ -13,4 +13,23 @@ RSpec.describe Yafac::OfferClient do
     end
   end
 
+  describe '#get_offers' do
+    context 'when all parameters are valid' do
+      it 'returns an array of offers' do
+
+      end
+    end
+
+    context 'when uid parameter is invalid' do
+      it 'raises an error with the reason' do
+
+      end
+    end
+
+    context 'when page parameter is invalid' do
+      it 'raises an error with the reason' do
+
+      end
+    end
+  end
 end
