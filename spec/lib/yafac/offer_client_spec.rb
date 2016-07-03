@@ -55,4 +55,48 @@ RSpec.describe Yafac::OfferClient, :vcr do
       end
     end
   end
+
+  describe '#hash_key' do
+    it 'calculates the hash correctly' do
+      expect(client.hash_key).to eq '478802d767265b9453369b2abbd9f3fc73334ab0'
+    end
+  end
+
+  describe '#valid_signature?' do
+    let(:response) { double(HTTParty::Response) }
+
+    context 'with a valid response and signature' do
+      before do
+        allow(response).to receive(:body).and_return('{"test": 1}')
+        allow(response).to receive(:headers).and_return({'X-Sponsorpay-Response-Signature' => '3cd5eb34f7b53d998e95fd24059275d1b06c6301'})
+      end
+
+      it 'validates the response' do
+        expect(client.valid_signature?(response)).to be_truthy
+      end
+    end
+
+    context 'with a valid response and invalid signature' do
+      before do
+        allow(response).to receive(:body).and_return('{"test": 1}')
+        allow(response).to receive(:headers).and_return({'X-Sponsorpay-Response-Signature' => '3Dd5eb34f7b53d998e95fd24059275d1b06c6301'})
+      end
+
+      it 'validates the response' do
+        expect(client.valid_signature?(response)).to be_falsey
+      end
+    end
+
+    context 'with a invalid response and signature' do
+      before do
+        allow(response).to receive(:body).and_return('{"test": 1, "malicious": true}')
+        allow(response).to receive(:headers).and_return({'X-Sponsorpay-Response-Signature' => '3cd5eb34f7b53d998e95fd24059275d1b06c6301'})
+      end
+
+      it 'validates the response' do
+        expect(client.valid_signature?(response)).to be_falsey
+      end
+    end
+    
+  end
 end
