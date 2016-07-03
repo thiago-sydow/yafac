@@ -3,6 +3,9 @@ RSpec.describe Yafac::OfferClient, :vcr do
   let(:informed) { {pub0: 'x', uid: 'player1', page: '1'} }
   let(:client) { Yafac::OfferClient.new(informed) }
 
+  before(:all) { Timecop.freeze(Time.local(2016, 7, 3, 12, 0, 0)) }
+  after(:all) { Timecop.return }
+
   describe '#initialize' do
     it 'merges the informed attributes into params' do
       expect(client.instance_variable_get(:@params)).to include(informed)
