@@ -9,6 +9,7 @@ gem 'httparty'
 group :test, :development do
   gem 'rspec'
   gem 'byebug'
+  gem 'rake'
 end
 
 group :test do
