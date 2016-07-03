@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.fyber.com/feed/v1/offers.json/?appid=157&device_id=2b6f0cc904d137be2e1730235f5664094b83&format=json&hashkey=4a61c58eb2b3bcc2dab113e2e40ccc659b785610&ip=109.235.143.113&locale=de&offer_types=112&page=1&pub0=x&timestamp=1467558000&uid=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '106'
+      Status:
+      - 400 Bad Request
+      Date:
+      - Sun, 03 Jul 2016 21:04:53 GMT
+      X-Runtime:
+      - '0.000433'
+      X-Rack-Cache:
+      - miss
+      X-Powered-By:
+      - Phusion Passenger Enterprise 5.0.13
+      Server:
+      - nginx + Phusion Passenger 5.0.13
+    body:
+      encoding: UTF-8
+      string: '{"code":"ERROR_INVALID_UID","message":"An invalid user id (uid) was
+        given as a parameter in the request."}'
+    http_version: 
+  recorded_at: Sun, 03 Jul 2016 15:00:00 GMT
+recorded_with: VCR 3.0.3
