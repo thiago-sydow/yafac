@@ -1,6 +1,7 @@
 require 'sinatra/base'
 
 require_relative 'errors/fyber_api_error'
+require_relative 'models/offer'
 require_relative 'offer_client'
 
 module Yafac
