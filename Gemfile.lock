@@ -69,6 +69,7 @@ DEPENDENCIES
   rack-test
   rake
   rspec
+  simplecov
   sinatra
   unicorn
   vcr
