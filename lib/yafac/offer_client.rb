@@ -31,6 +31,8 @@ module Yafac
       if response.code != 200 || parsed_response.fetch('code') == 'ERROR_INVALID_PAGE'
         raise Yafac::Errors::FyberApiError.new(response.code, parsed_response['code'], parsed_response['message'])
       else
+        raise Yafac::Errors::InvalidSignatureError.new unless valid_signature?(response)
+
         parsed_response.fetch('offers').map do |offer_attributes|
           Yafac::Models::Offer.new(offer_attributes)
         end
@@ -44,5 +46,9 @@ module Yafac
       Digest::SHA1.hexdigest(hash_key.join('&'))
     end
 
+    def valid_signature?(response)
+      signature = Digest::SHA1.hexdigest(response.body + API_KEY)
+      signature == response.headers['X-Sponsorpay-Response-Signature']
+    end
   end
 end
