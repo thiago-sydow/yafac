@@ -600,4 +600,164 @@ http_interactions:
         given as a parameter in the request."}'
     http_version: 
   recorded_at: Sun, 03 Jul 2016 17:30:51 GMT
+- request:
+    method: get
+    uri: http://api.fyber.com/feed/v1/offers.json/?appid=157&device_id=2b6f0cc904d137be2e1730235f5664094b83&format=json&hashkey=fcdf5a8ffa931aacc55067fb649dec950c28ff6b&ip=109.235.143.113&locale=de&offer_types=112&page=1&pub0=x&timestamp=1467570876
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '106'
+      Status:
+      - 400 Bad Request
+      Date:
+      - Sun, 03 Jul 2016 18:34:36 GMT
+      X-Runtime:
+      - '0.000289'
+      X-Rack-Cache:
+      - miss
+      X-Powered-By:
+      - Phusion Passenger Enterprise 5.0.13
+      Server:
+      - nginx + Phusion Passenger 5.0.13
+    body:
+      encoding: UTF-8
+      string: '{"code":"ERROR_INVALID_UID","message":"An invalid user id (uid) was
+        given as a parameter in the request."}'
+    http_version: 
+  recorded_at: Sun, 03 Jul 2016 18:34:37 GMT
+- request:
+    method: get
+    uri: http://api.fyber.com/feed/v1/offers.json/?appid=157&device_id=2b6f0cc904d137be2e1730235f5664094b83&format=json&hashkey=8979724278460546615a44230f25162119fb5e14&ip=109.235.143.113&locale=de&offer_types=112&page=1&pub0=x&timestamp=1467570890
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '106'
+      Status:
+      - 400 Bad Request
+      Date:
+      - Sun, 03 Jul 2016 18:34:50 GMT
+      X-Runtime:
+      - '0.000404'
+      X-Rack-Cache:
+      - miss
+      X-Powered-By:
+      - Phusion Passenger Enterprise 5.0.13
+      Server:
+      - nginx + Phusion Passenger 5.0.13
+    body:
+      encoding: UTF-8
+      string: '{"code":"ERROR_INVALID_UID","message":"An invalid user id (uid) was
+        given as a parameter in the request."}'
+    http_version: 
+  recorded_at: Sun, 03 Jul 2016 18:34:51 GMT
+- request:
+    method: get
+    uri: http://api.fyber.com/feed/v1/offers.json/?appid=157&device_id=2b6f0cc904d137be2e1730235f5664094b83&format=json&hashkey=0e19f33a8aa32ed56df63ae4a47fe32156f390ea&ip=109.235.143.113&locale=de&offer_types=112&page=1&pub0=x&timestamp=1467571317
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '106'
+      Status:
+      - 400 Bad Request
+      Date:
+      - Sun, 03 Jul 2016 18:41:58 GMT
+      X-Runtime:
+      - '0.000432'
+      X-Rack-Cache:
+      - miss
+      X-Powered-By:
+      - Phusion Passenger Enterprise 5.0.13
+      Server:
+      - nginx + Phusion Passenger 5.0.13
+    body:
+      encoding: UTF-8
+      string: '{"code":"ERROR_INVALID_UID","message":"An invalid user id (uid) was
+        given as a parameter in the request."}'
+    http_version: 
+  recorded_at: Sun, 03 Jul 2016 18:41:58 GMT
+- request:
+    method: get
+    uri: http://api.fyber.com/feed/v1/offers.json/?appid=157&device_id=2b6f0cc904d137be2e1730235f5664094b83&format=json&hashkey=f5a553e806d4628bb99660757e83b21f26648bab&ip=109.235.143.113&locale=de&offer_types=112&page=1&pub0=x&timestamp=1467571348
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '106'
+      Status:
+      - 400 Bad Request
+      Date:
+      - Sun, 03 Jul 2016 18:42:28 GMT
+      X-Runtime:
+      - '0.000430'
+      X-Rack-Cache:
+      - miss
+      X-Powered-By:
+      - Phusion Passenger Enterprise 5.0.13
+      Server:
+      - nginx + Phusion Passenger 5.0.13
+    body:
+      encoding: UTF-8
+      string: '{"code":"ERROR_INVALID_UID","message":"An invalid user id (uid) was
+        given as a parameter in the request."}'
+    http_version: 
+  recorded_at: Sun, 03 Jul 2016 18:42:28 GMT
 recorded_with: VCR 3.0.3
