@@ -8,11 +8,12 @@ module Yafac
   class Main < Sinatra::Base
 
     get '/' do
-      ''
+      erb ''
     end
 
     post '/offers' do
-      ''
+      client = OfferClient.new(permitted_params)
+      erb :offers, locals: { offers: client.get_offers }
     end
 
     configure do
@@ -29,9 +30,17 @@ module Yafac
       enable :logging
     end
 
+    error Yafac::Errors::FyberApiError do |error|
+      erb :fyber_error_response, locals: { error: error }
+    end
+
     error do
       status 500
       "Unknown error. " + env['sinatra.error'].message
+    end
+
+    def permitted_params
+      { uid: params['uid'], pub0: params['pub0'], page: params['page'] }
     end
 
   end
