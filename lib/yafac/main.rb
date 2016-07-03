@@ -1,6 +1,7 @@
 require 'sinatra/base'
 
 require_relative 'errors/fyber_api_error'
+require_relative 'errors/invalid_signature_error'
 require_relative 'models/offer'
 require_relative 'offer_client'
 
@@ -32,6 +33,10 @@ module Yafac
 
     error Yafac::Errors::FyberApiError do |error|
       erb :fyber_error_response, locals: { error: error }
+    end
+
+    error Yafac::Errors::InvalidSignatureError do |error|
+      erb :invalid_signature_error
     end
 
     error do
