@@ -1,0 +1,9 @@
+<h3>Oops</h3>
+<div class="alert alert-danger" role="alert">
+  <p>Something was wrong when consulting Fyber API, please review below:</p>
+  <ul>
+    <li>HTTP Status: <%= error.code %></li>
+    <li>Fyber Response Code: <%= error.reason %></li>
+    <li>Fyber Response Explanation: <%= error.message %></li>
+  </ul>
+</div>
