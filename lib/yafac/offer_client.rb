@@ -26,7 +26,9 @@ module Yafac
       response = self.class.get('/', query: @params.merge(hashkey: hash_key))
       parsed_response = JSON.parse(response.body)
 
-      if response.code != 200
+      # Fyber API it's not following the exposed documentation
+      # We are getting a http status 200 for invalid page when it should be 400
+      if response.code != 200 || parsed_response.fetch('code') == 'ERROR_INVALID_PAGE'
         raise Yafac::Errors::FyberApiError.new(response.code, parsed_response['code'], parsed_response['message'])
       else
         parsed_response.fetch('offers').map do |offer_attributes|
