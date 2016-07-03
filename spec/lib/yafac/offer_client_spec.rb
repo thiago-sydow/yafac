@@ -1,10 +1,9 @@
 
 RSpec.describe Yafac::OfferClient, :vcr do
+  let(:informed) { {pub0: 'x', uid: 'player1', page: '1'} }
+  let(:client) { Yafac::OfferClient.new(informed) }
 
   describe '#initialize' do
-    let(:informed) { {pub0: 'x', uid: 'y', page: '1'} }
-    let(:client) { Yafac::OfferClient.new(informed) }
-
     it 'merges the informed attributes into params' do
       expect(client.instance_variable_get(:@params)).to include(informed)
     end
@@ -15,9 +14,6 @@ RSpec.describe Yafac::OfferClient, :vcr do
   end
 
   describe '#get_offers' do
-    let(:informed) { {pub0: 'x', uid: 'y', page: '1'} }
-    let(:client) { Yafac::OfferClient.new(informed) }
-
     context 'when all parameters are valid' do
       context 'and there are offers to show' do
         it 'returns an array of offers' do
@@ -25,8 +21,8 @@ RSpec.describe Yafac::OfferClient, :vcr do
         end
       end
 
-      context 'and there are offers to show' do
-        before { allow(JSON).to receive(:parse).and_return({ 'offers' => [] }) }
+      context 'and there are no offers to show' do
+        before { allow(JSON).to receive(:parse).and_return({ 'code' => 'NO_CONTENT', 'offers' => [] }) }
 
         it 'returns an array of offers' do
           expect(client.get_offers).to be_empty
@@ -46,9 +42,9 @@ RSpec.describe Yafac::OfferClient, :vcr do
     end
 
     context 'when page parameter is invalid' do
-      before { informed[:page] = 'x' }
+      before { informed[:page] = '-1' }
 
-      xit 'raises an error with the reason' do
+      it 'raises an error with the reason' do
         expect { client.get_offers }.to raise_error do |error|
           expect(error).to be_a(Yafac::Errors::FyberApiError)
           expect(error.reason).to eq 'ERROR_INVALID_PAGE'
