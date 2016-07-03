@@ -3,13 +3,14 @@ require "codeclimate-test-reporter"
 
 SimpleCov.start
 
+ENV['RACK_ENV'] = 'test'
+
 require 'rspec'
 require 'rack/test'
 require 'byebug'
-
-ENV['RACK_ENV'] = 'test'
-
+require 'timecop'
 require 'dotenv'
+
 Dotenv.load
 
 # pull in the VCR setup
