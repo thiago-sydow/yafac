@@ -1,3 +1,4 @@
+
 RSpec.describe Yafac::OfferClient, :vcr do
 
   describe '#initialize' do
