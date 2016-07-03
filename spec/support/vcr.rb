@@ -7,4 +7,6 @@ VCR.configure do |c|
 
   # Default cassette options
   c.default_cassette_options = { :record => :new_episodes }
+
+  c.ignore_hosts 'codeclimate.com'
 end

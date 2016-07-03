@@ -10,11 +10,13 @@ group :test, :development do
   gem 'rspec'
   gem 'byebug'
   gem 'rake'
+  gem 'dotenv'
 end
 
 group :test do
   gem 'rack-test'
   gem 'vcr'
   gem 'webmock'
-  gem "codeclimate-test-reporter", require: nil
+  gem 'simplecov', require: false
+  gem 'codeclimate-test-reporter', require: false
 end
