@@ -7,6 +7,9 @@ require 'byebug'
 
 ENV['RACK_ENV'] = 'test'
 
+require 'dotenv'
+Dotenv.load
+
 # pull in the VCR setup
 require File.expand_path './support/vcr.rb', __dir__
 
