@@ -3,7 +3,7 @@ RSpec.describe Yafac::OfferClient, :vcr do
   let(:informed) { {pub0: 'x', uid: 'player1', page: '1'} }
   let(:client) { Yafac::OfferClient.new(informed) }
 
-  before(:all) { Timecop.freeze(Time.local(2016, 7, 3, 12, 0, 0)) }
+  before(:all) { Timecop.freeze(Time.utc(2016, 7, 3, 12, 0, 0)) }
   after(:all) { Timecop.return }
 
   describe '#initialize' do
@@ -58,7 +58,7 @@ RSpec.describe Yafac::OfferClient, :vcr do
 
   describe '#hash_key' do
     it 'calculates the hash correctly' do
-      expect(client.hash_key).to eq '478802d767265b9453369b2abbd9f3fc73334ab0'
+      expect(client.hash_key).to eq '8deb5eddbf4ecc0291adaa7736430f99fee12c01'
     end
   end
 
@@ -97,6 +97,6 @@ RSpec.describe Yafac::OfferClient, :vcr do
         expect(client.valid_signature?(response)).to be_falsey
       end
     end
-    
+
   end
 end
