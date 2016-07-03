@@ -29,9 +29,10 @@ module Yafac
       if response.code != 200
         raise Yafac::Errors::FyberApiError.new(response.code, parsed_response['code'], parsed_response['message'])
       else
-        ''
+        parsed_response.fetch('offers').map do |offer_attributes|
+          Yafac::Models::Offer.new(offer_attributes)
+        end
       end
-
     end
 
     def hash_key
