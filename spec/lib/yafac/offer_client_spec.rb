@@ -19,8 +19,8 @@ RSpec.describe Yafac::OfferClient, :vcr do
     let(:client) { Yafac::OfferClient.new(informed) }
 
     context 'when all parameters are valid' do
-      xit 'returns an array of offers' do
-
+      it 'returns an array of offers' do
+        expect(client.get_offers).to all( be_an(Yafac::Models::Offer) )
       end
     end
 
